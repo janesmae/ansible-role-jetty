@@ -1,0 +1,20 @@
+---
+
+- name: Create group
+  group:
+    name={{ jetty_group_name }}
+    state=present
+    system=yes
+  when: jetty_group_create
+
+- name: Create user
+  user:
+    name={{ jetty_user_name }}
+    state=present
+    comment='Jetty Servlet Engine'
+    createhome=no
+    group={{ jetty_group_name }}
+    home={{ jetty_user_home }}
+    shell=/sbin/nologin
+    system=yes
+  when: jetty_user_create

@@ -1,0 +1,27 @@
+---
+
+- name: Create symbolic link to latest installation
+  file:
+    src: "{{jetty_dest}}/jetty-distribution-{{ jetty_version }}"
+    dest: "{{jetty_dest}}/jetty"
+    state: link
+
+- name: Set Owner
+  file:
+    dest: "{{jetty_dest}}/jetty-distribution-{{ jetty_version }}"
+    owner: "{{jetty_user_name}}"
+    recurse: yes
+  when: jetty_user_create
+
+- name: Set Group
+  file:
+    dest: "{{jetty_dest}}/jetty-distribution-{{ jetty_version }}"
+    group: "{{jetty_group_name}}"
+    recurse: yes
+  when: jetty_group_create
+
+- name: Remove downloaded zip
+  file:
+    state: absent
+    path: "{{jetty_dest}}/jetty-distribution-{{ jetty_version }}.zip"
+  when: jetty_cleanup_archive
