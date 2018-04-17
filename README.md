@@ -46,7 +46,7 @@ jetty_cleanup_archive: true                                                     
 
 ```
 
-## Example Playbook
+## Example playbook
 
     - hosts: all
       roles:
