@@ -2,7 +2,7 @@
 
 - name: Download
   get_url:
-    url: http://central.maven.org/maven2/org/eclipse/jetty/jetty-distribution/{{jetty_version}}/jetty-distribution-{{ jetty_version }}.zip
+    url: https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-distribution/{{jetty_version}}/jetty-distribution-{{ jetty_version }}.zip
     dest: "{{jetty_dest}}"
     checksum: sha256:{{jetty_checksum}}
 
