@@ -29,8 +29,8 @@ ansible-galaxy install janesmae.jetty
 
 ```
 # default options
-jetty_version: 9.4.11.v20180605                                                         # Download latest version
-jetty_checksum: ff6117924c458a241dadad8f34d62079b616bebe6d23a3e32bf052f26bc843af        # Validate package with checksum
+jetty_version: 9.4.12.v20180830                                                         # Download latest version
+jetty_checksum: f594d502e6f4a072525dfe3f4edae3dd6b642faa20b9acc1af82c57db5a5fc53        # Validate package with checksum
 jetty_dest: /opt                                                                        # Destination folder
 
 # default options for jetty user and group
