@@ -2,12 +2,12 @@
 
 - name: Download
   get_url:
-    url: https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-distribution/{{jetty_version}}/jetty-distribution-{{ jetty_version }}.zip
-    dest: "{{jetty_dest}}"
-    checksum: sha256:{{jetty_checksum}}
+    url: https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-distribution/{{ jetty_version }}/jetty-distribution-{{ jetty_version }}.zip
+    dest: "{{ jetty_dest }}"
+    checksum: sha256:{{ jetty_checksum }}
 
 - name: Unpack
   unarchive:
-    src: "{{jetty_dest}}/jetty-distribution-{{ jetty_version }}.zip"
-    dest: "{{jetty_dest}}"
+    src: "{{ jetty_dest }}/jetty-distribution-{{ jetty_version }}.zip"
+    dest: "{{ jetty_dest }}"
     remote_src: yes
