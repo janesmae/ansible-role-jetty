@@ -1,8 +1,8 @@
 ---
 
 # default options
-jetty_version: 9.4.14.v20181114                                                         # Download latest version
-jetty_checksum: d349be63775a3e252719d2a63ae271f066208b210d52bf2fc044d43dcd367476        # Validate package with checksum
+jetty_version: 9.4.15.v20190215                                                         # Download latest version
+jetty_checksum: 78347deb15b998ff21675c9c50267641d1ea6a88c1c1d10ad68970d9fb74f409        # Validate package with checksum
 jetty_dest: /opt                                                                        # Destination folder
 
 # default options for jetty user and group
