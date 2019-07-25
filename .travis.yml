@@ -1,7 +1,9 @@
 ---
 
 language: python
-python: "2.7"
+
+sudo:
+  - required
 
 before_install:
   - sudo apt-get update -qq
@@ -12,4 +14,9 @@ install:
 
 script:
   - ansible-playbook -i tests/inventory tests/test.yml --syntax-check
-  - ansible-playbook -i tests/inventory tests/test.yml --connection=local --sudo -v
+  - ansible-playbook -i tests/inventory tests/test.yml --connection=local
+  - ansible-playbook -i tests/inventory tests/test.yml --connection=local | tee log
+  - grep ' changed=0 ' log || exit 1
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

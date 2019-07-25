@@ -1,13 +1,20 @@
 ---
 
+- name: Check for previous install
+  stat:
+    path: "{{ jetty_dest }}/jetty-distribution-{{ jetty_version }}"
+  register: p
+
 - name: Download
   get_url:
     url: https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-distribution/{{ jetty_version }}/jetty-distribution-{{ jetty_version }}.zip
     dest: "{{ jetty_dest }}"
     checksum: sha256:{{ jetty_checksum }}
+  when: not ( p.stat.isdir is defined and p.stat.isdir )
 
 - name: Unpack
   unarchive:
     src: "{{ jetty_dest }}/jetty-distribution-{{ jetty_version }}.zip"
     dest: "{{ jetty_dest }}"
     remote_src: yes
+  when: not ( p.stat.isdir is defined and p.stat.isdir )
